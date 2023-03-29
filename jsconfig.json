@@ -1,0 +1,10 @@
+{
+    "compilerOptions": {
+        "baseUrl": ".",
+        "paths": {},
+        "module": "Node16",
+    },
+    "include": [
+        "src"
+    ]
+}
