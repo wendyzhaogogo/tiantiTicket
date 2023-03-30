@@ -112,6 +112,9 @@ async function main(date, fieldNumList, timeList, cookie) {
         }
         console.log("场地获取成功")
         const orderFields = getToOrderFields(infos.fieldInfos, fieldNumList, timeList)
+        if (orderFields.length === 0) {
+            throw new Error('没有符合条件的场地')
+        }
         await commitOrder(date, orderFields, cookie)
         console.log("预定成功")
     } catch (ex) {
@@ -120,5 +123,5 @@ async function main(date, fieldNumList, timeList, cookie) {
     }
 }
 // setInterval(() => {
-main("20230402", ["1", "2"], ['20', '21'], "JSESSIONID=5E2B95C9ED86352E62A0A9A01922785C; Hm_lvt_bc864c0a0574a7cabe6b36d53206fb69=1679189000; gr_user_id=b95b1203-ca60-4de4-9b06-82b10242120c; gr_session_id_ade9dc5496ada31e=0ea0ab0c-70c0-4f76-8f82-48557ef2c4b0; Hm_lpvt_bc864c0a0574a7cabe6b36d53206fb69=1680047693; gr_session_id_ade9dc5496ada31e_0ea0ab0c-70c0-4f76-8f82-48557ef2c4b0=true")
+main("20230403", ["17", "18"], ['20', '21'], "JSESSIONID=37EEDBEFBEB8A853204817E21194366F;")
 // }, 1000)
